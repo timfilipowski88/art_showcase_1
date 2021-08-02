@@ -1,0 +1,65 @@
+.container {
+  max-width: 1100px;
+  padding: 0 1.5rem;
+  margin: auto;
+  overflow: hidden; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  color: #333; }
+
+ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+header#home {
+  background: url("../img/IMG_1474_edited.jpg") no-repeat center center/cover;
+  position: relative;
+  height: 100vh;
+  width: 100%; }
+  header#home .header-tagline {
+    color: #fff;
+    text-align: center; }
+  header#home .main-nav {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff; }
+    header#home .main-nav .logo {
+      color: #fff;
+      padding-left: 1rem;
+      font-size: 2rem; }
+      header#home .main-nav .logo .logo-color {
+        color: #1dd2e4; }
+    header#home .main-nav ul {
+      display: flex; }
+      header#home .main-nav ul li {
+        margin: 0 0.5rem; }
+        header#home .main-nav ul li a {
+          padding: 0.5rem 1rem;
+          font-size: 1.5rem;
+          font-weight: 800;
+          border-radius: 10px;
+          color: #fff; }
+          header#home .main-nav ul li a:hover {
+            cursor: pointer;
+            background: #1dd2e4; }
+  header#home .sticky {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0; }
