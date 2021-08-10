@@ -32,6 +32,8 @@ a {
   .header-tagline {
     color: $light-color;
     text-align: center;
+    padding: 1rem;
+    display: none;
   }
 
   .main-nav {
@@ -236,114 +238,113 @@ a {
 
 // Gallery Section
 #gallery {
-  .container {
-    h1 {
-      padding: 1rem;
-      font-size: 2rem;
-      text-align: center;
-      color: $dark-color;
+
+  h1 {
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: $dark-color;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    grid-gap: 2rem;
+
+    .showcase-image {
+      // The syntax is grid-row-start / grid-column-start / grid-row-end / grid-column-end.
+      grid-area: 1 / 2 / 3 / 4;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    .lightbox-enabled {
       width: 100%;
-      grid-gap: 1rem;
-
-      :nth-child(2) {
-        // The syntax is grid-row-start / grid-column-start / grid-row-end / grid-column-end.
-        grid-area: 1 / 2 / 3 / 4;
-      }
-
-      .lightbox-enabled {
-        width: 100%;
-        object-fit: cover;
-        transition: $gallery-transition;
-
-        &:hover {
-          opacity: 0.8;
-          cursor: zoom-in;
-          transform: scale(1.03);
-        }
-      }
-    }
-
-    .lightbox-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: $white-faded;
-      display: grid;
-      place-items: center;
-      padding: 1rem;
-      z-index: 3;
-      opacity: 0;
-      pointer-events: none;
+      object-fit: cover;
       transition: $gallery-transition;
 
-      &.active {
-        opacity: 1;
-        pointer-events: all;
+      &:hover {
+        opacity: 0.8;
+        cursor: zoom-in;
+        transform: scale(1.03);
+      }
+    }
+  }
+
+  .lightbox-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $white-faded;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+    transition: $gallery-transition;
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .lightbox-image-wrapper {
+      display: grid;
+      place-items: center;
+      max-width: 90vh;
+      max-height: 90vh;
+      position: relative;
+      box-shadow: 3px 3px 10px $dark-faded;
+
+      .lightbox-image {
+        height: 90vh;
+        width: 100%;
+        object-fit: cover;
+        cursor: zoom-out;
       }
 
-      .lightbox-image-wrapper {
+      .lightbox-btn {
+        border: none;
+        border-radius: 5px;
+        background-color: $white-faded;
         display: grid;
         place-items: center;
-        max-width: 90vh;
-        max-height: 90vh;
-        position: relative;
-        box-shadow: 3px 3px 10px $dark-faded;
+        padding: 0.8rem;
+        color: $dark-color;
+        cursor: pointer;
+        transition: $gallery-transition;
+        position: absolute;
 
-        .lightbox-image {
-          height: 90vh;
-          width: 100%;
-          object-fit: cover;
-          cursor: zoom-out;
+        i {
+          font-size: 2rem;
         }
 
-        .lightbox-btn {
-          border: none;
-          border-radius: 5px;
-          background-color: $white-faded;
-          display: grid;
-          place-items: center;
-          padding: 0.8rem;
-          color: $dark-color;
-          cursor: pointer;
-          transition: $gallery-transition;
-          position: absolute;
+        &.inactive {
+          opacity: 0;
+          pointer-events: none;
+        }
 
-          i {
-            font-size: 2rem;
-          }
+        &:focus {
+          outline: none;
+        }
 
-          &.inactive {
-            opacity: 0;
-            pointer-events: none;
-          }
+        &.left {
+          left: 5px;
 
+          &:hover,
           &:focus {
-            outline: none;
+            left: 0px;
           }
+        }
 
-          &.left {
-            left: 5px;
+        &.right {
+          right: 5px;
 
-            &:hover,
-            &:focus {
-              left: 0px;
-            }
-          }
-
-          &.right {
-            right: 5px;
-
-            &:hover,
-            &:focus {
-              right: 0px;
-            }
+          &:hover,
+          &:focus {
+            right: 0px;
           }
         }
       }
@@ -355,7 +356,7 @@ a {
 #about {
   margin-bottom: 1rem;
 
-  .about-content {
+  .about-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;

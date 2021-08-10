@@ -69,8 +69,40 @@
   }
 
   // Gallery Section
+  #gallery {
+    .gallery-grid {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1rem;
 
+      .showcase-image {
+        // The syntax is grid-row-start / grid-column-start / grid-row-end / grid-column-end.
+        grid-area: auto;
+      }
+    }
+  }
 
+  // About
+  #about {
+    .about-grid {
+      grid-template-columns: 1fr;
+      grid-gap: 1rem;
+    }
+  }
+
+  // Footer 
+  #footer {
+    .footer-container {
+      flex-direction: column;
+
+      p {
+        font-size: 1.1rem;
+
+        a {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
 }
 
 // Landscape
